@@ -143,7 +143,7 @@ while True:
     except ValueError:
         print("\nPlease enter a number! Try again!\n")
 
-
+print()
 #%%
 
 #Algorithms
@@ -155,7 +155,7 @@ while True:
 remainder = df_rows % minNumGroups
 
 #print("Leftover students: " + str(remainder))
-print()
+#print()
 
 
 #list of teams
@@ -172,14 +172,8 @@ df = df.iloc[np.random.permutation(len(df))]
 #variables
 count=0         #to put x amount of students in the list
 teamnum=0       # num for the team
-bln=0           # blacklist number 
-
-#get the index of black list col and name col 
-for z in list(df):
-    bln+=1
-    if z == "Blacklist":
-        print()     
-bln-=1
+nin = df.columns.get_loc("Name")   #name index number
+bln = df.columns.get_loc("Blacklist")     # blacklist index number
 
 
 #loop through all df
@@ -189,9 +183,8 @@ for i in (range(df_rows)):
     if count < minNumGroups:
         
         #append the blacklis names to the nested lists
-        b[teamnum].append(df.iloc[i, 4])      #fix hardcode black will not be 4
-        #appened teams to the nested lists
-        Teams[teamnum].append(df.iloc[i, 0]) #fix names wont be= 0
+        b[teamnum].append(df.iloc[i, bln])     
+        Teams[teamnum].append(df.iloc[i, nin]) 
         count += 1
     #reset for next team, if count == maxsize of group
     if count == minNumGroups:
@@ -237,14 +230,8 @@ while(good_teams==False):
     #variables
     count=0         #to put x amount of students in the list
     teamnum=0       # num for the team
-    bln=0           # blacklist number 
-    
-    #get the index of black list col and name col 
-    for z in list(df):
-        bln+=1
-        if z == "Blacklist":
-            print()     
-    bln-=1
+    nin = df.columns.get_loc("Name")   #name index number
+    bln = df.columns.get_loc("Blacklist")     # blacklist index number
     
     
     #loop through all df
@@ -305,7 +292,8 @@ for i in range(numTeams):
 #put the groups headers above the member of the team 
 regrouped.columns = new_col
 
-#print(regrouped)
+print("This is the generated groups")
+print(regrouped)
 
 #Saving the new csv file
 
