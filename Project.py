@@ -144,6 +144,8 @@ while True:
         print("\nPlease enter a number! Try again!\n")
 
 print()
+
+
 #%%
 
 #Algorithms
@@ -157,11 +159,16 @@ remainder = df_rows % minNumGroups
 #print("Leftover students: " + str(remainder))
 #print()
 
-
-#list of teams
-Teams = [[] for _ in range(numTeams)]
-#list of blacklists
-b = [[] for _ in range(numTeams)]
+if remainder == 0:
+    #list of teams
+    Teams = [[] for _ in range(numTeams)]
+    #list of blacklists
+    b = [[] for _ in range(numTeams)]
+else:
+    #list of teams
+    Teams = [[] for _ in range(numTeams+1)]
+    #list of blacklists
+    b = [[] for _ in range(numTeams+1)]
 
 #randomize the df
 df = df.iloc[np.random.permutation(len(df))]
@@ -182,21 +189,40 @@ for i in (range(df_rows)):
     #see group is 3 people
     if count < minNumGroups:
         
+        if i != df_rows:
         #append the blacklis names to the nested lists
-        b[teamnum].append(df.iloc[i, bln])     
-        Teams[teamnum].append(df.iloc[i, nin]) 
-        count += 1
+            b[teamnum].append(df.iloc[i, bln])     
+            Teams[teamnum].append(df.iloc[i, nin]) 
+            count += 1
+            
     #reset for next team, if count == maxsize of group
     if count == minNumGroups:
         teamnum += 1         #go to the next team
         count = 0            #reset count to 0, to refill the next team
+        
 
 
+if(remainder != 0):
+    if(remainder == 1):
+        Teams[0].append(Teams[-1][0])
+        
+    elif(remainder >= 2):
+        while(len(Teams[-1]) != 0):
+            for i in range(len(Teams)-1):
+                if(remainder == 0):
+                    break
+                               
+                Teams[i].append(Teams[-1][remainder-1])
+                del Teams[-1][remainder-1]
+                remainder = remainder - 1
+                #print(len(randomTeams[-1]))
+                
+    del Teams[-1]
         
 
 #Blacklist
 
-#i= neam num
+#i= team num
 #j=eachstudent in the team
 #k=each student in bl
 
@@ -209,23 +235,38 @@ for i in range(teamnum):
         for k in range(minNumGroups):
             if(b[i][k] == Teams[i][j]):
 #                print(Teams[i][k],"HATES", Teams[i][j])
-                good_teams= False
+                good_teams = False
 
 
 
 #this is used for if there is a team that has a blacklist in it        
 while(good_teams==False):
     
-    #list of teams
-    Teams = [[] for _ in range(numTeams)]
-    #list of blacklists
-    b = [[] for _ in range(numTeams)]
+    #use modulus to check if teams are distrubted evenly 
+    #and no person is leftover
+    #use remainder to index in last column
+    remainder = df_rows % minNumGroups
+    
+    #print("Leftover students: " + str(remainder))
+    #print()
+    
+    
+    if remainder == 0:
+        #list of teams
+        Teams = [[] for _ in range(numTeams)]
+        #list of blacklists
+        b = [[] for _ in range(numTeams)]
+    else:
+        #list of teams
+        Teams = [[] for _ in range(numTeams+1)]
+        #list of blacklists
+        b = [[] for _ in range(numTeams+1)]
     
     #randomize the df
     df = df.iloc[np.random.permutation(len(df))]
     
     #print random df
-#    print(df)
+    #print(df)
     
     #variables
     count=0         #to put x amount of students in the list
@@ -240,20 +281,40 @@ while(good_teams==False):
         #see group is 3 people
         if count < minNumGroups:
             
+            if i != df_rows:
             #append the blacklis names to the nested lists
-            b[teamnum].append(df.iloc[i, 4])      #fix hardcode black will not be 4
-            #appened teams to the nested lists
-            Teams[teamnum].append(df.iloc[i, 0]) #fix names wont be= 0
-            count += 1
+                b[teamnum].append(df.iloc[i, bln])     
+                Teams[teamnum].append(df.iloc[i, nin]) 
+                count += 1
+                
         #reset for next team, if count == maxsize of group
         if count == minNumGroups:
             teamnum += 1         #go to the next team
             count = 0            #reset count to 0, to refill the next team
+            
     
+    
+    if(remainder != 0):
+        if(remainder == 1):
+            Teams[0].append(Teams[-1][0])
+            
+        elif(remainder >= 2):
+            while(len(Teams[-1]) != 0):
+                for i in range(len(Teams)-1):
+                    if(remainder == 0):
+                        break
+                                   
+                    Teams[i].append(Teams[-1][remainder-1])
+                    del Teams[-1][remainder-1]
+                    remainder = remainder - 1
+                    #print(len(randomTeams[-1]))
+                    
+        del Teams[-1]
+            
     
     #Blacklist
     
-    #i= neam num
+    #i= team num
     #j=eachstudent in the team
     #k=each student in bl
     
@@ -265,8 +326,8 @@ while(good_teams==False):
         for j in range(minNumGroups):
             for k in range(minNumGroups):
                 if(b[i][k] == Teams[i][j]):
-#                    print(Teams[i][k],"HATES", Teams[i][j])
-                    good_teams= False
+    #                print(Teams[i][k],"HATES", Teams[i][j])
+                    good_teams = False
 
 
 
