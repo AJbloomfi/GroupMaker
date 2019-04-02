@@ -205,6 +205,7 @@ for i in (range(df_rows)):
 if(remainder != 0):
     if(remainder == 1):
         Teams[0].append(Teams[-1][0])
+        b[0].append(b[-1][0])
         
     elif(remainder >= 2):
         while(len(Teams[-1]) != 0):
@@ -213,6 +214,7 @@ if(remainder != 0):
                     break
                                
                 Teams[i].append(Teams[-1][remainder-1])
+                b[i].append(b[-1][remainder-1])
                 del Teams[-1][remainder-1]
                 remainder = remainder - 1
                 #print(len(randomTeams[-1]))
@@ -231,8 +233,9 @@ if(remainder != 0):
 good_teams= True
 
 for i in range(teamnum):
-    for j in range(minNumGroups):
-        for k in range(minNumGroups):
+    lengthteamsize = len(Teams[i])
+    for j in range(lengthteamsize):
+        for k in range(lengthteamsize):
             if(b[i][k] == Teams[i][j]):
 #                print(Teams[i][k],"HATES", Teams[i][j])
                 good_teams = False
@@ -297,6 +300,7 @@ while(good_teams==False):
     if(remainder != 0):
         if(remainder == 1):
             Teams[0].append(Teams[-1][0])
+            b[0].append(b[-1][0])
             
         elif(remainder >= 2):
             while(len(Teams[-1]) != 0):
@@ -305,6 +309,7 @@ while(good_teams==False):
                         break
                                    
                     Teams[i].append(Teams[-1][remainder-1])
+                    b[i].append(b[-1][remainder-1])
                     del Teams[-1][remainder-1]
                     remainder = remainder - 1
                     #print(len(randomTeams[-1]))
@@ -323,10 +328,11 @@ while(good_teams==False):
     good_teams= True
     
     for i in range(teamnum):
-        for j in range(minNumGroups):
-            for k in range(minNumGroups):
+        lengthteamsize = len(Teams[i])
+        for j in range(lengthteamsize):
+            for k in range(lengthteamsize):
                 if(b[i][k] == Teams[i][j]):
-    #                print(Teams[i][k],"HATES", Teams[i][j])
+#                   print(Teams[i][k],"HATES", Teams[i][j])
                     good_teams = False
 
 
