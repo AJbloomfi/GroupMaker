@@ -20,9 +20,11 @@ the last question must be "Blacklist"
 Blacklist - Means, if the student does not prefer to work with a specific student.
 
 Questions should be formated as:
+
 What is your ________?
 
 Example questions:
+
 What is your first name?
 What is your major?
 What is your age?
@@ -32,6 +34,7 @@ etc...
 
 
 Example of the csv produced by a Google Survey:
+
 Timestamp, What is your name?, What is your major?, What is your favorite car?, What is your favorite food?, Blacklist
 
 
