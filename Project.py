@@ -3488,14 +3488,25 @@ while(useprogram):
             #make the col headers for new_headers df
             new_col = []
             new_col2 = []
+            
+            spa = []
             #loop through to make the groups needed 
             for i in range(numTeams):
                 new_col.append("Group " + str(i+1))
                 new_col2.append("Group " + str(i+1))
+                spa.append("Term 2")
             
             #put the groups headers above the member of the team 
             regrouped.columns = new_col
             regrouped2.columns = new_col2
+            
+            
+            df100=pd.DataFrame([spa], columns = new_col)
+            regrouped = regrouped.append(df100)
+            
+
+            
+            
             
             frames = [regrouped, regrouped2]
             
@@ -3551,15 +3562,27 @@ while(useprogram):
             new_col2 = []
             new_col3 = []
             #loop through to make the groups needed 
+            
+            spa = []
+            spa1 = []
             for i in range(numTeams):
                 new_col.append("Group " + str(i+1))
                 new_col2.append("Group " + str(i+1))
                 new_col3.append("Group " + str(i+1))
+                spa.append("Term 2")
+                spa1.append("Term 3")
+                
             
             #put the groups headers above the member of the team 
             regrouped.columns = new_col
             regrouped2.columns = new_col2
             regrouped3.columns = new_col3
+            
+            df100=pd.DataFrame([spa], columns = new_col)
+            regrouped = regrouped.append(df100)
+            
+            df9000=pd.DataFrame([spa1], columns = new_col)
+            regrouped2 = regrouped2.append(df9000)
             
             frames = [regrouped, regrouped2, regrouped3]
             
