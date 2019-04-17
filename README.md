@@ -3,7 +3,6 @@ Created By: Aaron Bloomfield, Jorge Contreras, Matthew Karp
 
 
 Installation Run the Program:
-
 To use this software, first the user will download the python file and download the CSV files attached to this document.
 The user can also use their own csv file that they have created but must be formatted in a specific way. 
 Below will describe how to format the csv file properly for the software to work as necessary.
