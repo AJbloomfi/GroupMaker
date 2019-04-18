@@ -1,22 +1,22 @@
-What's your name?,What's your color,What's your gender,What's your GPA,Blacklist
-John Smith,1,1,3,
-Sally Smith,2,2,4,Talon
-Jimbob Slacker,4,1,1,
-Mike ,2,1,3,
-Tom,1,1,3,
-Bruce,5,1,4,Zed
-Jack,3,1,4,
-Sue,2,2,1,
-Laura,1,2,2,
-Lauren,5,2,2,
-Tammy,3,2,3,
-Jane,5,2,2,
-Ahri,1,2,1,Sally Smith
-Zac,2,1,2,
-Annie,3,2,3,
-Ryze,2,1,4,Tom
-Caitlyn,1,2,3,
-Sivir,4,2,4,
-Lux,5,2,1,John Smith
-Talon,4,1,2,
-Zed,5,1,3,
+Timestamp,What's your name?,What's your color,What's your gender,What's your GPA,What's your car,What's your major,What's your age?,What's your favorite food,Blacklist
+4/17/2019,John Smith,1,1,3,Camero,CS,22,pizza,Mike
+4/18/2019,Sally Smith,2,2,4,Mustang,BIO,21,taco,Talon
+4/19/2019,Jimbob Slacker,4,1,1,Civic,SPAN,24,pizza,Mike
+4/17/2019,Mike,2,1,3,Thing,IT,23,banana,Tom
+4/18/2019,Tom,1,1,3,Camero,CHEM,24,pie,Jane
+4/19/2019,Bruce,5,1,4,Mustang,CS,21,pizza,Zed
+4/17/2019,Jack,3,1,4,Civic,BIO,23,taco,Tammy
+4/18/2019,Sue,2,2,1,Thing,SPAN,23,pizza,Laura
+4/19/2019,Laura,1,2,2,Camero,IT,23,banana,Mike
+4/17/2019,Lauren,5,2,2,Mustang,CHEM,23,pie,Tammy
+4/17/2019,Tammy,3,2,3,Civic,CS,23,pizza,
+4/18/2019,Jane,5,2,2,Thing,BIO,23,taco,Mike
+4/19/2019,Ahri,1,2,1,Camero,SPAN,24,pizza,Sally Smith
+4/17/2019,Zac,2,1,2,Mustang,IT,24,banana,Mike
+4/18/2019,Annie,3,2,3,Civic,CHEM,24,pie,
+4/19/2019,Ryze,2,1,4,Thing,CS,24,pizza,Tom
+4/17/2019,Caitlyn,1,2,3,Camero,BIO,24,taco,Mike
+4/18/2019,Sivir,4,2,4,Mustang,SPAN,24,pizza,
+4/19/2019,Lux,5,2,1,Civic,IT,24,banana,John Smith
+4/17/2019,Talon,4,1,2,Thing,CHEM,24,pie,
+4/17/2019,Zed,5,1,3,Camero,CS,24,pizza,Mike
